@@ -1,0 +1,118 @@
+@charset "UTF-8";
+
+
+.button{
+  --c1: #2cb5d3; /*　メイン */
+  --c2: #9abe7c; /* アクセント */
+  --c3: #006ec4; /* 強調 */
+
+  appearance: none;
+  -webkit-appearance: none;
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: system-ui, -apple-system, "Helvetica Neue", Arial;
+  color: white;
+  background:
+    linear-gradient(135deg, var(--c1) 0%, var(--c2) 60%); /* メイングラデ */
+  border-radius: 14px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    0 6px 18px rgba(2,18,33,0.14),
+    0 2px 6px rgba(2,18,33,0.06) inset;
+  transition: transform 220ms cubic-bezier(.2,.9,.3,1), box-shadow 220ms;
+  letter-spacing: .02em;
+}
+
+/* 浮かせる効果 */
+.button:hover{
+  transform: translateY(-6px) scale(1.01);
+  box-shadow:
+    0 18px 40px rgba(2,18,33,0.18),
+    0 2px 6px rgba(2,18,33,0.06) inset;
+}
+
+/* フォーカスの可視化*/
+.button:focus-visible{
+  outline: 3px solid rgba(0,110,196,0.14); /* var(--c3) を淡く */
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+/* 上に薄いハイライトの光沢 */
+.button::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.02) 40%, transparent 60%);
+  pointer-events: none;
+  mix-blend-mode: screen;
+  transform: translateY(-6px);
+  transition: transform 260ms;
+}
+
+/* 角の外側に回転するリング*/
+.button::after{
+  content: "";
+  position: absolute;
+  width: 220%;
+  height: 220%;
+  left: -60%;
+  top: -60%;
+  background: conic-gradient(from 120deg, rgba(0,110,196,0.16), rgba(44,181,211,0.16), rgba(154,190,124,0.16));
+  filter: blur(18px);
+  opacity: .95;
+  transform-origin: 50% 50%;
+  animation: spin 8s linear infinite;
+  pointer-events: none;
+  transition: opacity 220ms;
+}
+
+/*「押し込み」表現 */
+.button:active{
+  transform: translateY(-2px) scale(.995);
+  transition-duration: 120ms;
+}
+.button:active::before{
+  transform: translateY(-2px);
+}
+
+/* テキストの小さな左アイコン風の装飾 (CSSのみで) */
+.button .label {
+  position: relative;
+  z-index: 2; /* ::after より前に出す */
+  display: inline-flex;
+  gap: .6rem;
+  align-items: center;
+}
+
+/* 左の小さな丸（色変化でアクセント） */
+.button .dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, white 10%, rgba(255,255,255,0.12) 20%, transparent 35%), linear-gradient(180deg, var(--c3), var(--c1));
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+/* Hover時にリングを控えめに消す（よりボタンが浮く感じ） */
+.button:hover::after{
+  opacity: 0.55;
+}
+
+/* アニメーション停止希望の設定 */
+@media (prefers-reduced-motion: reduce){
+  .button::after{ animation: none; }
+  .button, .button::before, .button3::after { transition: none !important; transform: none !important; }
+}
+
+/* 回転アニメ */
+@keyframes spin{
+  from { transform: rotate(0deg) scale(1); }
+  to   { transform: rotate(360deg) scale(1); }
+}

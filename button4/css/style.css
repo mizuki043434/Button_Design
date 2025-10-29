@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+
+.button {
+  --c1: #2cb5d3;
+  --c2: #9abe7c;
+  --c3: #006ec4;
+
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.8rem 1.6rem;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--c1), var(--c3));
+  border: none;
+  cursor: pointer;
+}
+
+.button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-20deg);
+}
+
+.button:hover::before {
+  animation: shine 1.2s ease forwards;
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}

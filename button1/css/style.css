@@ -1,0 +1,47 @@
+@charset "UTF-8";
+
+body {
+  text-align: center;
+}
+
+/* ボタンリセット */
+.button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    appearance: none;
+
+    padding: 8px 24px;         /* 横パディングは少し広めに */
+    border-radius: 50px;
+    background-image: linear-gradient(
+        130deg,
+        #e79796,
+        #74f9fe
+    );
+    background-size: 200% 100%;
+    transition: all 0.5s;
+
+    /* 文字中央揃え */
+    display: inline-flex;       /* 横幅は文字に合わせる */
+    align-items: center;        /* 縦中央 */
+    justify-content: center;    /* 横中央 */
+}
+
+/* ボタン内文字 */
+.button span {
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    transition: all 0.25s;
+}
+
+.button:hover {
+    background-position: 100% 0;
+}
+
+.button:hover span {
+    transform: scale(1.1);
+}

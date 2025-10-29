@@ -1,0 +1,22 @@
+.button {
+  --c1: #e79796;
+  --c2: #fcd5ce;
+  --c3: #74f9fe;
+
+  background: transparent;
+  color: var(--c1);
+  border: 2px solid var(--c1);
+  border-radius: 10px;
+  font-weight: bold;
+  padding: 0.8rem 1.8rem;
+  text-shadow: 0 0 6px var(--c1);
+  box-shadow: 0 0 12px rgba(109,168,188,0.5);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #fff;
+  background: var(--c1);
+  box-shadow: 0 0 25px var(--c1), 0 0 60px rgba(109,168,188,0.6);
+}

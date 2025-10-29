@@ -1,0 +1,18 @@
+.button {
+  --c1: #6da8bc;
+  --c2: #1c434a;
+  --c3: #bbd7c8;
+
+  background: var(--c1);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  padding: 0.8rem 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover {
+  background: var(--c2);
+}
