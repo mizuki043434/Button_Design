@@ -57,3 +57,20 @@ h2 {
   font-weight: bold;
   color: #1c434a;
 }
+
+footer {
+  margin-top: 40px;
+  padding: 20px 0;
+  text-align: center;
+  background-color: #f7f7f7; /* 背景に馴染む淡色 */
+  color: #1c434a;
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+  border-top: 2px solid #bbd7c8;
+}
+
+footer p {
+  margin: 0;
+}
+
+
